@@ -31,15 +31,13 @@ def write_to_csv(videos):
 
 
 if __name__ == "__main__":
-
+    
     url = input("Enter the full path to your saved html file:\n")
     #url = "file:///home/jason/workspace/youtubescrape/TrewsYouTube.html"
     
-    r = Render(url)
-    page = r.frame.toHtml()
-    
+    result = Render(url)
+    page = result.frame.toHtml()
     soup = BeautifulSoup(page, "lxml")
- 
     recommended_videos = []    
     
     for rec_video in soup.find_all("a", {"class":"yt-simple-endpoint style-scope ytd-compact-video-renderer"}):
@@ -48,11 +46,10 @@ if __name__ == "__main__":
         
         link = rec_video.find('a')
         href = link.get('href')
-        
         span = rec_video.find('span')
         title = span.get('title')
-    
         thumbnail = 'https://i.ytimg.com/vi/' + href[-11:] + '/hqdefault.jpg' 
+        
         recommended_videos.append({'title': title, 
                                     'href': href,
                                     'thumbnail': thumbnail })
