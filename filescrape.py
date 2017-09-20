@@ -32,8 +32,9 @@ def write_to_csv(videos):
 
 if __name__ == "__main__":
     
+    # Your html filename should be in a format similar to:
+    # file:///home/jason/workspace/youtubescrape/TrewsYouTube.html
     url = input("Enter the full path to your saved html file:\n")
-    #url = "file:///home/jason/workspace/youtubescrape/TrewsYouTube.html"
     
     result = Render(url)
     page = result.frame.toHtml()
