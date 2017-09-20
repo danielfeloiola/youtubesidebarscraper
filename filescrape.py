@@ -1,7 +1,12 @@
 '''
-This code will scrape the sidebar recommended videos from a saved youtube page.
-You need to right click on the page you want to scrape and choose "save as..."
+This code will scrape the sidebar recommended videos from a saved
+youtube page.  You will need to right click on the page you want to
+scrape and choose "save as..." (take note of the full path name to
+your file - you will need to enter it when you run the program).
 
+The page is rendered via the Render Class from render_page.py.  
+Video link, title, and thumbnail link will be output to a file
+in csv format.
 '''
 
 
@@ -9,6 +14,7 @@ from bs4 import BeautifulSoup
 from render_page import Render
 
 def write_to_csv(videos):
+    ''' Write data to csv formatted file'''    
     
     outputfile = input("What do you want to call your data file?\n")
     print('Writing to "%s"...' % outputfile)
@@ -19,10 +25,10 @@ def write_to_csv(videos):
             + '"' + video['href'] + '", ' \
             + '"' + video['thumbnail'] + '"\n'
         csv.write(row)
-        
     csv.close()
     
     print('Success!  File closed.')
+
 
 if __name__ == "__main__":
 
