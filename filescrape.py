@@ -21,10 +21,13 @@ def write_to_csv(videos):
     csv = open(outputfile, "w")
         
     for video in videos:
-        row = '"' + video['title'] + '", ' \
-            + '"' + video['href'] + '", ' \
-            + '"' + video['thumbnail'] + '"\n'
-        csv.write(row)
+        try:     
+            row = '"' + video['title'] + '", ' \
+                + '"' + video['href'] + '", ' \
+                + '"' + video['thumbnail'] + '"\n'
+            csv.write(row)
+        except:
+            print("invalid record")
     csv.close()
     
     print('Success!  File closed.')
@@ -57,6 +60,6 @@ if __name__ == "__main__":
     
     #for video in recommended_videos:
     #    print(video, '\n')
-    #print(len(recommended_videos))
+    print("Found", len(recommended_videos), "videos.")
     
     write_to_csv(recommended_videos)
