@@ -5,4 +5,6 @@ Extracts video title, link, and thumbnail link and writes to csv file.
 
 Only the youtubescrape.py file is required to get data directly from Youtube.
 
-filescrape.py and render_page.py can be used to render and scrape a downloaded Youtube page.
+fs.py will render and scrape the pages saved in the videos folder. 
+
+Name the pages with number starting from 0, like 0.html; 1.html and so on
